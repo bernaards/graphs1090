@@ -1,11 +1,9 @@
 The Speedy Cab modification to include NTP graph into https://github.com/wiedehopf/graphs1090 
 includes modified install script and other components.
 
-![Screenshot](https://raw.githubusercontent.com/wiedehopf/graphs1090/screenshots/screenshot1.png)
-![Screenshot](https://raw.githubusercontent.com/wiedehopf/graphs1090/screenshots/screenshot2.png)
+![Screenshot](https://raw.githubusercontent.com/bernaards/graphs1090/TimeOverTime.png)
 
 # graphs1090
-![Screenshot](https://raw.githubusercontent.com/wiedehopf/graphs1090/screenshots/messages_24h.png)
 Graphs for dump1090-fa (based on dump1090-tools by mutability)
 
 Also works for other dump1090 variants supplying stats.json
