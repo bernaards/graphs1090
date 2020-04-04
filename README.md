@@ -1,3 +1,6 @@
+The Speedy Cab modification to include NTP graph into https://github.com/wiedehopf/graphs1090 
+includes modified install script and other components.
+
 ![Screenshot](https://raw.githubusercontent.com/wiedehopf/graphs1090/screenshots/screenshot1.png)
 ![Screenshot](https://raw.githubusercontent.com/wiedehopf/graphs1090/screenshots/screenshot2.png)
 
