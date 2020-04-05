@@ -561,6 +561,38 @@ wlan0_graph() {
 	mv "$1.tmp" "$1"
 	}
 
+## CLOCK GRAPH
+
+clock_stats_graph() {
+        $pre
+        rrdtool graph \
+                "$1.tmp" \
+                --start end-$4 \
+                $big \
+                --title "Clock" \
+                --step "$5" \
+                --vertical-label "microseconds" \
+                --lower-limit -5 \
+                --upper-limit 5 \
+                --units-exponent 1 \
+                --right-axis 1:0 \
+                --pango-markup \
+                "TEXTALIGN:center" \
+                "DEF:offset=$2/gauge-offset.rrd:value:AVERAGE" \
+                "DEF:sysjitter=$2/gauge-sys_jitter.rrd:value:AVERAGE" \
+                "DEF:clkjitter=$2/gauge-clk_jitter.rrd:value:AVERAGE" \
+                "CDEF:offsetfin=offset,1000,*" \
+                "CDEF:sysjitterfin=sysjitter,1000,*" \
+                "CDEF:clkjitterfin=clkjitter,1000,*" \
+                "TEXTALIGN:center" \
+                "LINE1:offsetfin#00ff00:Offset" \
+                "LINE1:sysjitterfin#ff0000:System Jitter" \
+                "LINE1:clkjitterfin#0000FF:Clock Jitter" \
+                --watermark "Drawn: $nowlit";
+        mv "$1.tmp" "$1"
+        }
+ 
+
 ## RECEIVER GRAPHS
 
 local_rate_graph() {
@@ -977,6 +1009,7 @@ dump1090_graphs() {
 }
 
 system_graphs() {
+    clock_stats_graph ${DOCUMENTROOT}/system-$2-clock_stats-$4.png /var/lib/collectd/rrd/$1/ntpq "$3" "$4" "$5"
 	cpu_graph ${DOCUMENTROOT}/system-$2-cpu-$4.png /var/lib/collectd/rrd/$1/aggregation-cpu-average "$3" "$4" "$5"
 	df_root_graph ${DOCUMENTROOT}/system-$2-df_root-$4.png /var/lib/collectd/rrd/$1/df-root "$3" "$4" "$5"
 	disk_io_iops_graph ${DOCUMENTROOT}/system-$2-disk_io_iops-$4.png /var/lib/collectd/rrd/$1/$disk "$3" "$4" "$5"

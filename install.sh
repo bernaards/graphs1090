@@ -86,12 +86,15 @@ fi
 cp dump1090.db dump1090.py system_stats.py LICENSE $ipath
 cp *.sh $ipath
 chmod u+x $ipath/*.sh
-if ! grep -e 'system_stats' -qs /etc/collectd/collectd.conf; then
+if ! grep -e 'read_ntpq' -qs /etc/collectd/collectd.conf; then
 	cp /etc/collectd/collectd.conf /etc/collectd/collectd.conf.graphs1090 2>/dev/null
 	cp collectd.conf /etc/collectd/collectd.conf
 	echo "------------------"
 	echo "Overwriting /etc/collectd/collectd.conf, the old file has been moved to /etc/collectd/collectd.conf.graphs1090"
 	echo "------------------"
+fi
+if ! [[ -f "/etc/collectd/read_ntpq.sh" ]]; then 
+	cp read_ntpq.sh /etc/collectd/read_ntpq.sh
 fi
 sed -i -e 's/XFF.*/XFF 0.8/' /etc/collectd/collectd.conf
 sed -i -e 's/skyview978/skyaware978/' /etc/collectd/collectd.conf
