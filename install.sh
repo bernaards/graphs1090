@@ -19,7 +19,7 @@ do
 	fi
 done
 
-if grep -E 'stretch|jessie|buster' /etc/os-release -qs
+if grep -E 'stretch|jessie|buster' /etc/os-release -qs 
 then
 	if ! dpkg -s libpython2.7 2>/dev/null | grep 'Status.*installed' &>/dev/null
 	then
