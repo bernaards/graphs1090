@@ -561,7 +561,7 @@ wlan0_graph() {
 	mv "$1.tmp" "$1"
 	}
 
-## CLOCK GRAPH
+## CLOCK GRAPH CONSISTENT LAYOUT
 
 clock_stats_graph() {
         $pre
