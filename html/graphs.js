@@ -103,7 +103,10 @@ function switchView(newTimeFrame) {
     
     $("#system-memory-image").attr("src", "graphs/system-" + $hostName + "-memory-" + $timeFrame + ".png?time=" + $timestamp);
     $("#system-memory-link").attr("href", "graphs/system-" + $hostName + "-memory-" + $timeFrame + ".png?time=" + $timestamp);
-
+    
+    $("#system-clock-image").attr("src", "graphs/system-" + $hostName + "-clock_stats-" + $timeFrame + ".png?time=" + $timestamp);
+    $("#system-clock-link").attr("href", "graphs/system-" + $hostName + "-clock_stats-" + $timeFrame + ".png?time=" + $timestamp);
+    
     element =  document.getElementById('system-temperature_imperial-image');
     if (typeof(element) != 'undefined' && element != null) {
         $("#system-temperature_imperial-image").attr("src", "graphs/system-" + $hostName + "-temperature_imperial-" + $timeFrame + ".png?time=" + $timestamp);
