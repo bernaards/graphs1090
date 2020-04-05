@@ -1,7 +1,11 @@
 The Speedy Cab modification to include NTP graph into https://github.com/wiedehopf/graphs1090 
+Also uses ideas and code explained at:
+https://www.mictronics.de/2017/01/my-adsb-receiver-box-monitoring-clock-performance-upgrade-4/
 includes modified install script and other components.
 
-![Screenshot](https://raw.githubusercontent.com/bernaards/graphs1090/TimeOverTime.png)
+![Screenshot](https://raw.githubusercontent.com/bernaards/graphs1090/screenshots/TimeOverTime.png)
+
+This install assumes that an NTP Stratum 1 exists and the only purpose is to add the performance graph to `graphs1090`.
 
 # graphs1090
 Graphs for dump1090-fa (based on dump1090-tools by mutability)
@@ -10,7 +14,7 @@ Also works for other dump1090 variants supplying stats.json
 
 ## Installation / Update to current version:
 ```
-sudo bash -c "$(wget -q -O - https://raw.githubusercontent.com/wiedehopf/graphs1090/master/install.sh)"
+sudo bash -c "$(wget -q -O - https://raw.githubusercontent.com/bernaards/graphs1090/master/install.sh)"
 ```
 
 ## Configuration (optional):
