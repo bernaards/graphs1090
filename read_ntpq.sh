@@ -10,7 +10,7 @@ while true; do
    clk_jitter=U
 
    eval "$(
-     curl -s http://192.168.86.235/ntp-data | perl -ne '@m = $_ =~ m/(offset|sys_jitter|clk_jitter)=(\S+)/xgc; while ($k=shift @m, $v=shift @m) {$v=~s/,$//g;printf("%s=%s\n", $k, $v);}'
+     ntpq -crv | perl -ne '@m = $_ =~ m/(offset|sys_jitter|clk_jitter)=(\S+)/xgc; while ($k=shift @m, $v=shift @m) {$v=~s/,$//g;printf("%s=%s\n", $k, $v);}'
    )"
 
    if [ "$offset" = U ] && [ "$sys_jitter" = U ] && [ "$clk_jitter" = U ]; then
